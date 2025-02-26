@@ -54,14 +54,6 @@ body {
     background-color: #063970;
 }
 
-.start {
-    padding-top: 10%;
-    padding-bottom: 10%;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-}
-
 .name, .skills, .Project_heading {
     font-family: 'Concert_One';
     font-size: 3rem;
