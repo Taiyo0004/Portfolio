@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="./static/styles.css">
 </head>
 <body>
-
-    <a class="greetings" href="#Profile_Photo">Hello! Welcome
-    <p class="greetings">To My Portfolio</p>
+    <div class="greetings">
+        <a href="#Profile_Photo">Hello! Welcome</a>
+        <p>To My Portfolio</p>
+    </div>
     </a>
     <div class="Profile">
         <img src="./static/images/profile.JPG" alt="Avatar" id="Profile_Photo">
@@ -42,9 +43,27 @@
             </div>
         </div>
     </div>
+    <div class="robot-container">
+        <img src="./static/images/robot.gif" alt="Hi Robot" class="robot">
+    </div>    
+    <!-- Chatbot Integration -->
+    <button class="chatbot-toggle" id="chatToggle">💬</button>
+    <div class="chatbot-modal" id="chatModal">
+        <div class="chatbot-header">
+            <h3>Chat with Rae</h3>
+            <button class="chatbot-close" id="chatClose">×</button>
+        </div>
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="spinner"></div>
+        </div>
+        <a href="https://huggingface.co/spaces/taiy0/Rae_refined" target="_blank" class="chatbot-button">
+            💬 Chat with Rae
+        </a>
+    </div>
+
 
     <script src="scripts.js"></script>
-
+    </body>
 </body>
 <footer>
     <div>
