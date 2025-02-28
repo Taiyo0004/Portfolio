@@ -170,7 +170,7 @@
 @media screen and (max-width: 768px) {
     .greetings {
         font-size: clamp(2rem, 5vw, 4rem);
-        padding-left: 3%;
+        padding-left: 2%;
         text-align: center;
         color: white
     }
