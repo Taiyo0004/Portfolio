@@ -1,0 +1,472 @@
+/* =====================================================
+   TOKENS — edit these to change the whole site's look
+   ===================================================== */
+:root {
+  --bg-page: #EEF3F1;       /* patterned backdrop behind the white card */
+  --dot-color: #D9E3DF;     /* the dot pattern color */
+  --canvas-bg: #FFFFFF;     /* the white site card */
+
+  --nav-bg: #16211F;        /* dark nav / footer bar */
+  --nav-text: #FFFFFF;
+
+  --ink: #202524;           /* body text */
+  --muted: #5B655F;         /* secondary text */
+  --line: #DDE3E0;          /* dashed dividers, borders */
+
+  --accent: #1F6F63;        /* links, tags, icons */
+  --accent-soft: #E3EEEC;   /* tinted backgrounds */
+  --accent-warm: #E2A33B;   /* big headers, like the reference's orange headers */
+
+  --font-display: 'Baloo 2', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --container-width: 1020px;
+}
+
+/* =====================================================
+   RESET / BASE
+   ===================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--bg-page);
+  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-warm);
+}
+
+a:focus-visible,
+label:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+}
+
+#sitecanvas {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  background: var(--canvas-bg);
+  box-shadow: 0 3px 3px 0 rgba(22, 33, 31, 0.08), 0 3px 10px 0 rgba(22, 33, 31, 0.08);
+}
+
+/* =====================================================
+   NAV
+   ===================================================== */
+nav {
+  position: relative;
+  height: 70px;
+  padding: 10px 40px 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--nav-bg);
+}
+
+.menu-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.logo a {
+  color: var(--nav-text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+#menulist {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menulist li a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+#menulist li a:hover {
+  color: var(--accent-warm);
+}
+
+#menulist li a[aria-current="page"] {
+  color: var(--accent-warm);
+}
+
+.menu-icon {
+  display: none;
+  color: var(--nav-text);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* =====================================================
+   PAGE BASE
+   ===================================================== */
+.pagecanvas {
+  width: 100%;
+}
+
+.pagecontent {
+  padding: 40px 50px 50px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* =====================================================
+   HERO / WELCOME
+   ===================================================== */
+.welcomeflexbox {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.welcomesection {
+  width: 58%;
+}
+
+.welcomeimg {
+  width: 42%;
+  display: flex;
+  justify-content: center;
+}
+
+.bigheader {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  color: var(--accent-warm);
+  margin: 0 0 0.3em;
+}
+
+.underheader {
+  margin: 0 0 0.9em;
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.tag-list li {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.socialmedialist {
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.socialmedialist a {
+  color: var(--ink);
+  display: inline-flex;
+}
+
+.socialmedialist a:hover {
+  color: var(--accent);
+}
+
+/* =====================================================
+   CURRENTLY / NEWS
+   ===================================================== */
+.newssection {
+  margin: 40px 0;
+}
+
+.newsheader {
+  text-align: center;
+  font-family: var(--font-display);
+  color: var(--accent-warm);
+  font-size: 1.7rem;
+  margin: 18px 0 10px;
+}
+
+.newssection p {
+  text-align: center;
+  margin: 0 0 0.4em;
+}
+
+/* =====================================================
+   SECTION HEADERS (About / Projects / Links)
+   ===================================================== */
+.sectionheader {
+  font-family: var(--font-display);
+  color: var(--accent-warm);
+  font-size: 2rem;
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line);
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+/* =====================================================
+   PROJECTS
+   ===================================================== */
+.projectitem {
+  margin-bottom: 6px;
+}
+
+.projecttitle {
+  font-family: var(--font-display);
+  color: var(--accent);
+  margin: 0 0 0.4em;
+}
+
+.project-tags {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.comicdivider {
+  margin: 26px 0;
+}
+
+/* =====================================================
+   LINKS
+   ===================================================== */
+.linkitem {
+  margin-bottom: 22px;
+}
+
+.linkheaders {
+  font-family: var(--font-display);
+  color: var(--accent);
+  margin: 0 0 4px;
+}
+
+.linkregulartext {
+  margin: 0;
+}
+
+.linkregulartext a {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.linkregulartext a:hover {
+  color: var(--accent);
+}
+
+/* =====================================================
+   ABOUT PAGE
+   ===================================================== */
+.aboutflexbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.authorimage {
+  width: 38%;
+  display: flex;
+  justify-content: center;
+}
+
+.aboutsection {
+  width: 62%;
+}
+
+#faqheader {
+  font-family: var(--font-display);
+  color: var(--accent-warm);
+  font-size: 1.6rem;
+  margin: 20px 0 16px;
+}
+
+blockquote {
+  margin: 0 0 20px;
+  padding: 10px 18px;
+  border-left: 3px solid var(--accent-soft);
+  color: var(--muted);
+}
+
+/* =====================================================
+   PROJECTS PAGE
+   ===================================================== */
+.projectflexbox {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 6px;
+}
+
+.projecticon {
+  flex: 0 0 auto;
+}
+
+.projecticon svg {
+  display: block;
+}
+
+.projectsection {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =====================================================
+   LINKS PAGE
+   ===================================================== */
+.linklist {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.linklist li {
+  margin-bottom: 14px;
+}
+
+.linklist li::before {
+  content: "✦ ";
+  color: var(--accent-warm);
+}
+
+.linklist li a {
+  font-weight: 600;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+#footer {
+  text-align: center;
+  color: var(--nav-text);
+  background-color: var(--nav-bg);
+  padding: 16px;
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 880px) {
+  nav {
+    padding: 10px 20px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  #menulist {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+    background: var(--nav-bg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  #menulist li {
+    padding: 16px;
+  }
+
+  .menu-toggle-checkbox:checked ~ #menulist {
+    max-height: 300px;
+  }
+
+  .pagecontent {
+    padding: 30px 24px 40px;
+  }
+
+  .welcomeflexbox {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .welcomesection,
+  .welcomeimg {
+    width: 100%;
+  }
+
+  .welcomeimg {
+    margin-top: 24px;
+  }
+
+  .socialmedialist {
+    justify-content: center;
+  }
+
+  .tag-list {
+    justify-content: center;
+  }
+
+  .bigheader {
+    font-size: 2rem;
+  }
+
+  .sectionheader {
+    font-size: 1.5rem;
+  }
+
+  .aboutflexbox,
+  .projectflexbox {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .authorimage,
+  .aboutsection {
+    width: 100%;
+  }
+}

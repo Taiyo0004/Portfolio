@@ -1,93 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="./static/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+  <meta name="description" content="Hi, I'm Aditya! An aspiring data scientist and machine learning engineer. Here you'll find my projects, links, and a bit about me, all in one place.">
+  <title>Aditya Naidu – Data Scientist &amp; ML Engineer</title>
 </head>
 <body>
-    <div class="greetings">
-        <a href="#Profile_Photo">Hello! Welcome</a>
-        <p>To My Portfolio</p>
-    </div>
-    </a>
-    <div class="Profile">
-        <img src="./static/images/profile.JPG" alt="Avatar" id="Profile_Photo">
-        <h1 class="name">Aditya Naidu</h1>
-        <p class="skills">I am a Software Engineer</p>
-    </div>
 
-    <h2 class="Project_heading">My Projects</h2>
-    
-    <div class="projects-container">
-        <div class="card">
-            <img src="./static/images/Animetion.jpg" alt="Animetion">
-            <div class="container">
-                <a id="app_name" href="https://github.com/Faith1406/Animetion"><b>Animetion</b></a>
-                <p id="description">Streaming App</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./static/images/CryptiX.png" alt="CryptiX">
-            <div class="container">
-                <a id="app_name" href="https://github.com/Faith1406/Cryptix-Q"><b>CryptiX</b></a>
-                <p id="description">Cryptography</p>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./static/images/AIRace.jpeg" alt="AI Race">
-            <div class="container">
-                <a id="app_name" href="https://github.com/Faith1406/AI-Racer"><b>AI Race</b></a>
-                <p id="description">AI Driving Model</p>
-            </div>
-        </div>
-    </div>
-    <div class="robot-container">
-        <img src="./static/images/robot.gif" alt="Hi Robot" class="robot">
-    </div>    
-    <!-- Chatbot Integration -->
-    <button class="chatbot-toggle" id="chatToggle">💬</button>
-    <div class="chatbot-modal" id="chatModal">
-        <div class="chatbot-header">
-            <h3>Chat with Rae</h3>
-            <button class="chatbot-close" id="chatClose">×</button>
-        </div>
-        <div id="loadingSpinner" class="loading-spinner">
-            <div class="spinner"></div>
-        </div>
-        <a href="https://huggingface.co/spaces/taiy0/Rae_refined" target="_blank" class="chatbot-button">
-            💬 Chat with Rae
-        </a>
-    </div>
+<div id="sitecanvas">
 
+  <!--NAV-->
+  <nav>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+    <div class="logo"><a href="index.html">Aditya Naidu</a></div>
+    <ul id="menulist">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="links.html">Links</a></li>
+    </ul>
+    <label for="menu-toggle" class="menu-icon" aria-label="Toggle menu">☰</label>
+  </nav>
 
-    <script src="scripts.js"></script>
-    </body>
+  <!--CONTENT-->
+  <div class="pagecanvas">
+    <div class="pagecontent">
+
+      <!-- HERO / WELCOME -->
+      <div class="welcomeflexbox">
+        <div class="welcomesection">
+          <h1 class="bigheader">Hi, I'm Aditya!</h1>
+          <p class="underheader"><strong>Aspiring data scientist and machine learning engineer.</strong>
+            I want to help innovative tech teams build scalable AI solutions and turn data into decisions.</p>
+          <p>I work mainly in <strong>Python</strong>, <strong>PyTorch</strong>, and <strong>FastAPI</strong>,
+            focused on <strong>computer vision</strong> and <strong>end-to-end data pipelines</strong> —
+            you can see what I've built over in <a href="projects.html">projects</a>.</p>
+
+          <ul class="tag-list">
+            <li>Python</li>
+            <li>PyTorch</li>
+            <li>FastAPI</li>
+            <li>OpenCV</li>
+            <li>ONNX Runtime</li>
+          </ul>
+
+          <div class="socialmedialist">
+            <a href="mailto:adityanaidu1014@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+                <path d="M2 5h20v14H2z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <text x="6.5" y="16.5" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="currentColor">in</text>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="welcomeimg">
+          <!-- Swap this for <img src="assets/photo.jpg" alt="Aditya Naidu"> once you have one -->
+          <svg viewBox="0 0 200 200" width="220" height="220" role="img" aria-label="Monogram: AN">
+            <circle cx="100" cy="100" r="97" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:3"/>
+            <text x="50%" y="58%" text-anchor="middle" font-family="'Baloo 2', sans-serif" font-size="70" font-weight="700" style="fill:var(--accent)">AN</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- CURRENTLY / NEWS -->
+      <div class="newssection">
+        <hr>
+        <h2 class="newsheader">CURRENTLY</h2>
+        <p><strong>September 2026</strong></p>
+        <p>Exploring local LLM integrations like LM Studio and refining data extraction workflows,
+          while looking for entry-level ML / data roles.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!--FOOTER-->
+  <footer>
+    <div id="footer">
+      <p>Copyright &copy; 2026 Aditya Naidu</p>
+    </div>
+  </footer>
+
+</div>
 </body>
-<footer>
-    <div>
-        <h1 class="Contact_Text">Contact</h1>
-        <p class="Info">
-            I am currently learning at a very basic level. If you still want to contact me, all the necessary information is given below.
-        </p>
-        <div class="social-links">
-            <a href="mailto:adityanaidu1014@gmail.com">
-                <img class="logo" src="./static/images/gmail.png" alt="Gmail">
-            </a>
-            <a href="https://www.instagram.com/_____taiyo_____/">
-                <img class="logo" src="./static/images/instagram.png" alt="Instagram">
-            </a>
-            <a href="https://www.linkedin.com/in/aditya-naidu-5230082a4/">
-                <img class="logo" src="./static/images/linkedin.png" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/Taiyo0004">
-                <img class="logo" src="./static/images/github.png" alt="GitHub">
-            </a>
-            <a href="https://x.com/__taiy0__">
-                <img class="logo" src="./static/images/twitter.png" alt="Twitter">
-            </a>
-        </div>
-    </div>
-</footer>
 </html>
