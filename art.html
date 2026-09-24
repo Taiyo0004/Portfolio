@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Art | Aditya</title>
+  <meta name="description" content="Pixel art, sketches and game sprites by Aditya.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ===== NAV: same block on every page. Only aria-current changes. ===== -->
+  <header class="site-header">
+    <a class="site-logo" href="index.html">aditya</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a class="dymo" style="--tilt:-2deg" href="index.html">home</a></li>
+        <li><a class="dymo" style="--tilt:1deg" href="about.html">about</a></li>
+        <li><a class="dymo" style="--tilt:-1deg" href="projects.html">projects</a></li>
+        <li><a class="dymo" style="--tilt:2deg" href="art.html" aria-current="page">art</a></li>
+        <li><a class="dymo" style="--tilt:-1.5deg" href="links.html">links</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Art</h1>
+    <p class="page-intro">Pixel art, sketches and sprites, pinned up as I make them.</p>
+
+    <section class="corkboard" aria-label="Artwork">
+
+      <!-- ART TILE TEMPLATE: copy one <figure>.
+           Add class="is-pixel" to the img for crisp pixel art. -->
+      <figure class="art-tile">
+        <img class="is-pixel" src="assets/avatar.svg" alt="Pixel art self-portrait">
+        <figcaption>Self-portrait</figcaption>
+      </figure>
+
+      <figure class="art-tile">
+        <img src="assets/art/placeholder.svg" alt="Placeholder for a future piece">
+        <figcaption>Your next piece</figcaption>
+      </figure>
+
+      <figure class="art-tile">
+        <img src="assets/art/placeholder.svg" alt="Placeholder for a future piece">
+        <figcaption>Game sprite sheet</figcaption>
+      </figure>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built by hand with HTML and CSS by Aditya, 2026</p>
+  </footer>
+</body>
+</html>

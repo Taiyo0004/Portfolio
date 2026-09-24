@@ -2,109 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
-  <meta name="description" content="About Aditya Naidu, an aspiring data scientist and machine learning engineer.">
-  <title>About – Aditya Naidu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Aditya</title>
+  <meta name="description" content="About Aditya: data science and ML student.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-<div id="sitecanvas">
+  <!-- ===== NAV: same block on every page. Only aria-current changes. ===== -->
+  <header class="site-header">
+    <a class="site-logo" href="index.html">aditya</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a class="dymo" style="--tilt:-2deg" href="index.html">home</a></li>
+        <li><a class="dymo" style="--tilt:1deg" href="about.html" aria-current="page">about</a></li>
+        <li><a class="dymo" style="--tilt:-1deg" href="projects.html">projects</a></li>
+        <li><a class="dymo" style="--tilt:2deg" href="art.html">art</a></li>
+        <li><a class="dymo" style="--tilt:-1.5deg" href="links.html">links</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!--NAV-->
-  <nav>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
-    <div class="logo"><a href="index.html">Aditya Naidu</a></div>
-    <ul id="menulist">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" aria-current="page">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="links.html">Links</a></li>
-    </ul>
-    <label for="menu-toggle" class="menu-icon" aria-label="Toggle menu">☰</label>
-  </nav>
+  <main>
+    <h1 class="page-title">About me</h1>
+    <p class="page-intro">Student, builder, occasional all-nighter.</p>
 
-  <!--CONTENT-->
-  <div class="pagecanvas">
-    <div class="pagecontent">
+    <div class="about-layout">
 
-      <div class="aboutflexbox">
-        <div class="authorimage">
-          <!-- Swap this for <img src="assets/photo.jpg" alt="Aditya Naidu"> once you have one -->
-          <svg viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Monogram: AN">
-            <circle cx="100" cy="100" r="97" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:3"/>
-            <text x="50%" y="58%" text-anchor="middle" font-family="'Baloo 2', sans-serif" font-size="70" font-weight="700" style="fill:var(--accent)">AN</text>
-          </svg>
+      <!-- Left: the main story on notebook paper -->
+      <article class="note taped">
+        <h2>The short version</h2>
+        <p>I'm Aditya, a data science and machine learning student based in India. I focus on understanding the fundamentals deeply, writing as much code as I can, and learning how to be a good programmer.</p>
+
+        <h2>Where I've been</h2>
+        <p>A lot of my work so far has been in computer vision, including autonomous vehicle systems. Most of it is in Python, with some C++ for systems work using ROS2 and OpenCV.</p>
+
+        <h2>Where I'm heading</h2>
+        <p>I want to understand machine learning deeply, beyond computer vision algorithms. Right now that means building a solid data science foundation and doing projects that take data from raw to results, end to end.</p>
+
+        <h2>What I care about</h2>
+        <p>Machine learning, computer vision, and making AI accessible.</p>
+      </article>
+
+      <!-- Right: sticky notes. Copy a .sticky block to add another. -->
+      <aside class="sticky-wall" aria-label="Currently and fun facts">
+        <div class="sticky" style="--bg:#fff2a8; --tilt:2deg">
+          <h2>Working on right now</h2>
+          <ul>
+            <li>Data science basics: Python, SQL, NumPy, Pandas</li>
+            <li>Real-world data projects on GitHub</li>
+            <li>Explaining my work clearly</li>
+          </ul>
         </div>
-        <div class="aboutsection">
-          <h1 class="sectionheader">About</h1>
-          <p class="underheader">
-            Hi, I'm Aditya — an aspiring data scientist and machine learning engineer
-            with entry-level proficiency in applied machine learning and data systems.
-          </p>
-          <p>
-            I'm driven to apply what I've learned so far in my academic journey to
-            real problems — from training and optimizing models, to shipping the
-            pipelines that put them to use. I'm most interested in work that sits
-            between research and production: taking a model from a notebook to
-            something that runs reliably, in real time, in front of real users.
-          </p>
-          <p>
-            Outside of individual projects, I've led as a Team Captain, managing
-            complex software architectures and coordinating team workflows —
-            experience that shaped how I think about building things with other
-            people, not just on my own.
-          </p>
-          <p>Contact: adityanaidu1014 (at) gmail.com</p>
+
+        <div class="sticky" style="--bg:#c8e8ff; --tilt:-2.5deg">
+          <h2>Fun facts</h2>
+          <ul>
+            <li>I once stayed up the whole night to finish a project</li>
+            <li>I want to build games as a hobby, so I'm learning Pygame</li>
+          </ul>
         </div>
-      </div>
 
-      <div class="flexboxtwo">
-        <div>
-          <hr>
-          <h2 id="faqheader">FREQUENTLY ASKED QUESTIONS</h2>
-
-          <p><strong>What do you work with?</strong></p>
-          <blockquote>
-            Mainly Python, PyTorch, and FastAPI — plus OpenCV and ONNX Runtime
-            for computer vision work, and VS Code / Jupyter day to day.
-          </blockquote>
-
-          <p><strong>How did you get into ML?</strong></p>
-          <blockquote>
-            Through hands-on projects — building a real-time computer vision
-            pipeline and a multi-agent framework for LLM orchestration — alongside
-            my academic coursework in data science.
-          </blockquote>
-
-          <p><strong>Are you open to opportunities?</strong></p>
-          <blockquote>
-            Yes! I'm actively looking for entry-level data science or machine
-            learning engineering roles — feel free to reach out.
-          </blockquote>
-
-          <p><strong>What are you learning right now?</strong></p>
-          <blockquote>
-            Local LLM integrations like LM Studio, and better data extraction
-            methods for building cleaner pipelines.
-          </blockquote>
+        <div class="sticky" style="--bg:#ffd3c9; --tilt:1deg">
+          <h2>Tools I reach for</h2>
+          <p style="margin:0">Python, C++, SQL, NumPy, Pandas, PyTorch, Flask, FastAPI, ROS2, OpenCV</p>
         </div>
-      </div>
+      </aside>
 
     </div>
-  </div>
+  </main>
 
-  <!--FOOTER-->
-  <footer>
-    <div id="footer">
-      <p>Copyright &copy; 2026 Aditya Naidu</p>
-    </div>
+  <footer class="site-footer">
+    <p>Built by hand with HTML and CSS by Aditya, 2026</p>
   </footer>
-
-</div>
 </body>
 </html>

@@ -2,54 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
-  <meta name="description" content="Ways to reach Aditya Naidu.">
-  <title>Links – Aditya Naidu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Links | Aditya</title>
+  <meta name="description" content="Where to find Aditya online.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-<div id="sitecanvas">
-
-  <!--NAV-->
-  <nav>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
-    <div class="logo"><a href="index.html">Aditya Naidu</a></div>
-    <ul id="menulist">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="links.html" aria-current="page">Links</a></li>
-    </ul>
-    <label for="menu-toggle" class="menu-icon" aria-label="Toggle menu">☰</label>
-  </nav>
-
-  <!--CONTENT-->
-  <div class="pagecanvas">
-    <div class="pagecontent">
-
-      <h1 class="sectionheader">Links</h1>
-
-      <h2 class="linkheaders">Contact</h2>
-      <ul class="linklist">
-        <li><a href="mailto:adityanaidu1014@gmail.com">adityanaidu1014@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect with me on LinkedIn</a></li>
+  <!-- ===== NAV: same block on every page. Only aria-current changes. ===== -->
+  <header class="site-header">
+    <a class="site-logo" href="index.html">aditya</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a class="dymo" style="--tilt:-2deg" href="index.html">home</a></li>
+        <li><a class="dymo" style="--tilt:1deg" href="about.html">about</a></li>
+        <li><a class="dymo" style="--tilt:-1deg" href="projects.html">projects</a></li>
+        <li><a class="dymo" style="--tilt:2deg" href="art.html">art</a></li>
+        <li><a class="dymo" style="--tilt:-1.5deg" href="links.html" aria-current="page">links</a></li>
       </ul>
+    </nav>
+  </header>
 
-    </div>
-  </div>
+  <main>
+    <h1 class="page-title">Links</h1>
+    <p class="page-intro">Where to find me, and how to reach me.</p>
 
-  <!--FOOTER-->
-  <footer>
-    <div id="footer">
-      <p>Copyright &copy; 2026 Aditya Naidu</p>
-    </div>
+    <!-- Replace each href with your real link. Copy an <li> to add more. -->
+    <ul class="link-board">
+      <li><a class="sticker sticker--big" style="--bg:#24292f; --tilt:-3deg" href="https://github.com/">GitHub<span class="sticker__sub">code and projects</span></a></li>
+      <li><a class="sticker sticker--big" style="--bg:#0a66c2; --tilt:2deg" href="https://www.linkedin.com/">LinkedIn<span class="sticker__sub">work and experience</span></a></li>
+      <li><a class="sticker sticker--big" style="--bg:#c0392b; --tilt:-1deg" href="mailto:you@example.com">Email<span class="sticker__sub">you@example.com</span></a></li>
+      <li><a class="sticker sticker--big" style="--bg:var(--gold); --fg:#1e2427; --tilt:3deg" href="assets/resume.pdf">Resume<span class="sticker__sub">PDF, one page</span></a></li>
+      <li><a class="sticker sticker--big" style="--bg:#20beff; --fg:#1e2427; --tilt:-2deg" href="https://www.kaggle.com/">Kaggle<span class="sticker__sub">notebooks and datasets</span></a></li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built by hand with HTML and CSS by Aditya, 2026</p>
   </footer>
-
-</div>
 </body>
 </html>

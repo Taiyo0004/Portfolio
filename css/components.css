@@ -1,0 +1,301 @@
+/* ==========================================================
+   components.css: reusable blocks.
+   sticker, tags, note, sticky, project-card, filter,
+   corkboard + art-tile, link board.
+   ========================================================== */
+
+/* ---------- Sticker ----------
+   <li class="sticker" style="--bg:#3776ab; --tilt:-4deg">Python</li>
+   Optional: --fg (text colour), --r (corner radius)            */
+.sticker-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-content: flex-start;
+}
+
+.sticker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 800;
+  color: var(--fg, #fff);
+  background: var(--bg, #333);
+  padding: 0.45rem 0.8rem;
+  border: 3px solid #fff;
+  border-radius: var(--r, 10px);
+  box-shadow: var(--shadow-lift);
+  transform: rotate(var(--tilt, 0deg));
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+a.sticker:hover { transform: rotate(0deg) scale(1.04); }
+
+/* ---------- Tags (small tech labels) ---------- */
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tags li {
+  font-size: var(--step--1);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 0.1rem 0.5rem;
+  border-radius: 3px;
+}
+
+/* ---------- Note: lined notebook paper ---------- */
+.note {
+  position: relative;
+  padding: 1.75rem 1.75rem 1.75rem 3.25rem;
+  line-height: 1.75rem;
+  background-color: var(--paper);
+  background-image: linear-gradient(transparent calc(1.75rem - 1px), var(--paper-line) 0);
+  background-size: 100% 1.75rem;
+  background-position: 0 1.75rem;
+  box-shadow: var(--shadow-lift);
+}
+.note::before { /* red margin line */
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.1rem;
+  width: 2px;
+  background: #e8a0a0;
+}
+.note > * { margin: 0 0 1.75rem; max-width: 62ch; }
+.note > :last-child { margin-bottom: 0; }
+.note h2 {
+  font-family: var(--font-hand);
+  font-size: var(--step-2);
+  line-height: 1.75rem;
+}
+
+/* Add .taped to anything to stick a strip of tape on top */
+.taped { position: relative; }
+.taped::after {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  translate: -50% 0;
+  rotate: -3deg;
+  width: 6.5rem;
+  height: 1.4rem;
+  background: var(--tape);
+}
+
+/* ---------- Sticky note ----------
+   <div class="sticky" style="--bg:#bfe3ff; --tilt:2deg">...</div> */
+.sticky-wall {
+  display: grid;
+  gap: var(--space-l);
+}
+.sticky {
+  padding: 1.25rem 1.4rem;
+  font-family: var(--font-hand);
+  font-size: var(--step-1);
+  line-height: 1.4;
+  background: var(--bg, #fff2a8);
+  box-shadow: var(--shadow-lift);
+  transform: rotate(var(--tilt, 0deg));
+}
+.sticky h2 {
+  font-size: var(--step-2);
+  margin: 0 0 0.5rem;
+}
+.sticky ul { margin: 0; padding-left: 1.1rem; }
+.sticky li + li { margin-top: 0.4rem; }
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-l);
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .about-layout { grid-template-columns: 1fr; }
+}
+
+/* ---------- Project filter (pure CSS, radio buttons) ----------
+   To add a category: add an <input>, a <label>, and one line in
+   each of the three rule groups below.                          */
+.filter-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 var(--space-l);
+}
+
+/* 1. highlight the chosen label */
+#f-all:checked    ~ .filter [for="f-all"],
+#f-data:checked   ~ .filter [for="f-data"],
+#f-vision:checked ~ .filter [for="f-vision"],
+#f-games:checked  ~ .filter [for="f-games"] { background: var(--dymo-active); }
+
+/* 2. keyboard focus ring on the label */
+#f-all:focus-visible    ~ .filter [for="f-all"],
+#f-data:focus-visible   ~ .filter [for="f-data"],
+#f-vision:focus-visible ~ .filter [for="f-vision"],
+#f-games:focus-visible  ~ .filter [for="f-games"] {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* 3. hide cards that don't match */
+#f-data:checked   ~ .project-grid .project-card:not([data-category~="data"]),
+#f-vision:checked ~ .project-grid .project-card:not([data-category~="vision"]),
+#f-games:checked  ~ .project-grid .project-card:not([data-category~="games"]) { display: none; }
+
+/* ---------- Project card: manila folder ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: var(--space-l) var(--space-m);
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+  padding: 1rem 1.1rem 1.2rem;
+  background: var(--manila);
+  border-radius: 0 6px 6px 6px;
+  box-shadow: var(--shadow-lift);
+}
+.project-card__tab {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  padding: 0.15rem 1rem 0;
+  font-family: var(--font-hand);
+  font-size: var(--step--1);
+  background: var(--manila);
+  border-radius: 6px 6px 0 0;
+}
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 6px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.project-card h3 {
+  font-family: var(--font-hand);
+  font-size: var(--step-2);
+  line-height: 1.15;
+  margin: 0;
+}
+.project-card p { margin: 0; }
+.project-card__links {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-weight: 600;
+}
+
+/* A folder that's still empty */
+.project-card--empty {
+  align-self: start;
+  background: transparent;
+  border: 2px dashed var(--ink-soft);
+  box-shadow: none;
+}
+.project-card--empty .project-card__tab {
+  background: transparent;
+  border: 2px dashed var(--ink-soft);
+  border-bottom: 0;
+  bottom: calc(100% + 2px);
+  left: -2px;
+}
+
+/* ---------- Corkboard + art tile (polaroid) ---------- */
+.corkboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: var(--space-l);
+  padding: var(--space-l);
+  background-color: #b88a5a;
+  background-image:
+    radial-gradient(rgba(0, 0, 0, 0.14) 1px, transparent 1.6px),
+    radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1.6px);
+  background-size: 7px 7px, 11px 11px;
+  background-position: 0 0, 3px 5px;
+  border: 14px solid #8b6a47;
+  box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.35), var(--shadow-lift);
+}
+
+.art-tile {
+  position: relative;
+  margin: 0;
+  padding: 0.7rem 0.7rem 0;
+  background: #fff;
+  box-shadow: var(--shadow-lift);
+  transform: rotate(var(--tilt, 0deg));
+}
+.art-tile:nth-child(3n + 1) { --tilt: -2deg; }
+.art-tile:nth-child(3n + 2) { --tilt: 1.5deg; }
+.art-tile:nth-child(3n)     { --tilt: -0.6deg; }
+
+.art-tile::before { /* push pin */
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  translate: -50% 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff8a80, #c62828);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+.art-tile img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.art-tile img.is-pixel { image-rendering: pixelated; }
+.art-tile figcaption {
+  padding: 0.5rem 0 0.7rem;
+  font-family: var(--font-hand);
+  font-size: var(--step-1);
+  text-align: center;
+}
+
+/* ---------- Links page ---------- */
+.link-board {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-s) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-l) var(--space-m);
+}
+.sticker--big {
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
+  padding: 1rem 1.4rem;
+  font-size: var(--step-2);
+  line-height: 1.2;
+}
+.sticker__sub {
+  font-size: var(--step--1);
+  font-weight: 400;
+  opacity: 0.85;
+}

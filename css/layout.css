@@ -1,0 +1,241 @@
+/* ==========================================================
+   layout.css: header, nav, page shell, footer, home locker.
+   ========================================================== */
+
+/* ---------- Header + nav ---------- */
+.site-header {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: var(--space-m) var(--space-m) 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.site-logo {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: var(--step-2);
+  text-decoration: none;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* Label-maker tape: used for nav, buttons and filters */
+.dymo {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  color: #f4f4f2;
+  background: var(--dymo);
+  padding: 0.35rem 0.85rem;
+  border-radius: 2px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), var(--shadow-lift);
+  transform: rotate(var(--tilt, 0deg));
+  cursor: pointer;
+}
+.dymo:hover { background: #33373b; }
+.dymo[aria-current="page"] { background: var(--dymo-active); }
+
+/* ---------- Page shell ---------- */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: var(--space-l) var(--space-m) var(--space-xl);
+}
+
+.page-title {
+  font-family: var(--font-hand);
+  font-size: var(--step-4);
+  line-height: 1.05;
+  margin: 0 0 var(--space-xs);
+}
+
+.page-intro {
+  max-width: 60ch;
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  margin: 0 0 var(--space-l);
+}
+
+.site-footer {
+  min-height: 5.6rem; /* matches the floor strip in base.css */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--step--1);
+  color: #eef0ec;
+  text-align: center;
+}
+
+/* ---------- Home: the locker ---------- */
+.locker {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  max-width: 58rem;
+  margin: 0 auto;
+  perspective: 1400px;
+}
+
+.locker__body {
+  background: var(--steel);
+  padding: 1.1rem;
+  border-radius: 6px 0 0 6px;
+  box-shadow: inset 0 0 0 1px var(--steel-dark), 0 24px 40px -22px rgba(0, 0, 0, 0.55);
+}
+
+.locker__inside {
+  position: relative;
+  min-height: 34rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: 3.25rem 1.5rem 1.25rem;
+  border-radius: 3px;
+  background: radial-gradient(ellipse at 50% 0%, #4d555d 0%, var(--inside) 62%);
+  box-shadow: inset 0 10px 22px rgba(0, 0, 0, 0.6), inset 0 0 0 2px #22272c;
+}
+
+/* The one animated moment: the lamp flickers on */
+.locker__lamp {
+  position: absolute;
+  top: 0.9rem;
+  left: 50%;
+  translate: -50% 0;
+  width: 45%;
+  height: 0.55rem;
+  border-radius: 99px;
+  background: #fff8e1;
+  box-shadow: 0 0 18px 4px rgba(255, 236, 170, 0.55), 0 40px 90px 40px rgba(255, 236, 170, 0.1);
+  animation: lamp-on 1.3s ease-out 0.3s both;
+}
+@keyframes lamp-on {
+  0%   { opacity: 0.05; }
+  10%  { opacity: 1; }
+  18%  { opacity: 0.15; }
+  32%  { opacity: 1; }
+  40%  { opacity: 0.35; }
+  55%, 100% { opacity: 1; }
+}
+
+.poster {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  color: #e9e6dc;
+  background: #3b4147 radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.07), transparent 60%);
+  box-shadow: 0 12px 22px -10px rgba(0, 0, 0, 0.75);
+}
+.poster::before,
+.poster::after {
+  content: "";
+  position: absolute;
+  top: -0.55rem;
+  width: 4.5rem;
+  height: 1.3rem;
+  background: var(--tape);
+}
+.poster::before { left: -1rem; rotate: -35deg; }
+.poster::after  { right: -1rem; rotate: 35deg; }
+
+.poster__avatar {
+  width: clamp(7rem, 18vw, 11rem);
+  image-rendering: pixelated;
+}
+
+.poster__hello,
+.poster__name,
+.poster__role { font-family: var(--font-hand); margin: 0; }
+
+.poster__hello { font-size: var(--step-1); color: var(--gold); }
+.poster__name {
+  font-size: var(--step-4);
+  line-height: 0.95;
+  color: var(--gold);
+  text-decoration: underline wavy var(--gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+.poster__role { font-size: var(--step-2); line-height: 1.2; margin: 0.4rem 0 0.8rem; }
+.poster__note { margin: 0; max-width: 34ch; color: #cfd3d4; }
+
+.locker__shelf {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 6px solid var(--steel-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.locker__door {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding: 2rem 2.75rem 2rem 1.5rem;
+  border-radius: 0 6px 6px 0;
+  background: linear-gradient(90deg, var(--steel-dark) 0 3%, var(--steel) 12%, var(--steel-light) 85%, var(--steel) 100%);
+  box-shadow: -10px 22px 40px -22px rgba(0, 0, 0, 0.6);
+  transform-origin: left center;
+  transform: rotateY(-22deg);
+}
+
+.locker__door-title {
+  font-family: var(--font-hand);
+  font-size: var(--step-1);
+  margin: 0;
+}
+
+.locker__handle {
+  position: absolute;
+  right: 0.9rem;
+  top: 45%;
+  width: 0.9rem;
+  height: 3.5rem;
+  border-radius: 4px;
+  background: linear-gradient(var(--steel-light), var(--steel-dark));
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.vents {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: auto;
+  width: 70%;
+}
+.vents span {
+  height: 0.6rem;
+  border-radius: 99px;
+  background: var(--steel-dark);
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 720px) {
+  .locker { grid-template-columns: 1fr; }
+  .locker__body { border-radius: 6px 6px 0 0; }
+  .locker__inside { min-height: 0; }
+  .poster { grid-template-columns: 1fr; }
+  .locker__door { transform: none; border-radius: 0 0 6px 6px; }
+  .vents { display: none; }
+}

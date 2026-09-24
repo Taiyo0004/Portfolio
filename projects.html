@@ -2,92 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
-  <meta name="description" content="Projects by Aditya Naidu, an aspiring data scientist and machine learning engineer.">
-  <title>Projects – Aditya Naidu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Aditya</title>
+  <meta name="description" content="Data science, computer vision and game projects by Aditya.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-<div id="sitecanvas">
+  <!-- ===== NAV: same block on every page. Only aria-current changes. ===== -->
+  <header class="site-header">
+    <a class="site-logo" href="index.html">aditya</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a class="dymo" style="--tilt:-2deg" href="index.html">home</a></li>
+        <li><a class="dymo" style="--tilt:1deg" href="about.html">about</a></li>
+        <li><a class="dymo" style="--tilt:-1deg" href="projects.html" aria-current="page">projects</a></li>
+        <li><a class="dymo" style="--tilt:2deg" href="art.html">art</a></li>
+        <li><a class="dymo" style="--tilt:-1.5deg" href="links.html">links</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!--NAV-->
-  <nav>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
-    <div class="logo"><a href="index.html">Aditya Naidu</a></div>
-    <ul id="menulist">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html" aria-current="page">Projects</a></li>
-      <li><a href="links.html">Links</a></li>
-    </ul>
-    <label for="menu-toggle" class="menu-icon" aria-label="Toggle menu">☰</label>
-  </nav>
+  <main>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-intro">Things I've built, sorted into folders. Pick a label to filter.</p>
 
-  <!--CONTENT-->
-  <div class="pagecanvas">
-    <div class="pagecontent">
+    <!-- Filter: the radio inputs must stay directly before .filter and .project-grid -->
+    <input class="filter-input" type="radio" name="filter" id="f-all" checked>
+    <input class="filter-input" type="radio" name="filter" id="f-data">
+    <input class="filter-input" type="radio" name="filter" id="f-vision">
+    <input class="filter-input" type="radio" name="filter" id="f-games">
 
-      <h1 class="sectionheader">Projects</h1>
+    <div class="filter" role="group" aria-label="Filter projects">
+      <label class="dymo" style="--tilt:-1deg" for="f-all">all</label>
+      <label class="dymo" style="--tilt:1deg" for="f-data">data science</label>
+      <label class="dymo" style="--tilt:-2deg" for="f-vision">vision + robotics</label>
+      <label class="dymo" style="--tilt:1.5deg" for="f-games">games</label>
+    </div>
 
-      <div class="projectflexbox">
-        <div class="projecticon">
-          <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
-            <rect x="4" y="18" width="56" height="34" rx="6" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:2"/>
-            <circle cx="32" cy="35" r="12" style="fill:none; stroke:var(--accent); stroke-width:2.5"/>
-            <circle cx="32" cy="35" r="4" style="fill:var(--accent)"/>
-            <rect x="22" y="10" width="20" height="10" rx="2" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:2"/>
-          </svg>
+    <div class="project-grid">
+
+      <!-- ====================================================
+           PROJECT CARD TEMPLATE: copy from here...
+           data-category: data | vision | games (space-separated
+           if it fits more than one, e.g. "data vision")
+           ==================================================== -->
+      <article class="project-card" data-category="vision">
+        <span class="project-card__tab">Vision + robotics</span>
+        <img src="assets/projects/placeholder.svg" alt="Screenshot of the autonomous vehicle project">
+        <h3>Autonomous vehicle system</h3>
+        <p>Replace this with one or two sentences: what it does, what you used, and what you learned.</p>
+        <ul class="tags">
+          <li>Python</li><li>C++</li><li>ROS2</li><li>OpenCV</li>
+        </ul>
+        <div class="project-card__links">
+          <a href="#">Code on GitHub</a>
+          <a href="#">Demo video</a>
         </div>
-        <div class="projectsection">
-          <h2 class="projecttitle">Real-time computer vision pipeline</h2>
-          <p class="underheader">
-            Built and optimized a real-time computer vision pipeline using TwinLiteNet,
-            OpenCV, and ONNX Runtime GPU — focused on getting a deep learning model
-            running fast enough to be useful live, not just accurate offline.
-          </p>
-          <p class="project-tags">TwinLiteNet · OpenCV · ONNX Runtime GPU</p>
-        </div>
-      </div>
+      </article>
+      <!-- ...to here. ============================================ -->
 
-      <hr class="comicdivider">
+      <article class="project-card" data-category="data">
+        <span class="project-card__tab">Data science</span>
+        <img src="assets/projects/placeholder.svg" alt="Chart from the data analysis project">
+        <h3>Your first data project</h3>
+        <p>An end-to-end analysis: load, clean, explore, and explain a real dataset with Pandas and SQL.</p>
+        <ul class="tags">
+          <li>Python</li><li>Pandas</li><li>SQL</li>
+        </ul>
+        <div class="project-card__links">
+          <a href="#">Code on GitHub</a>
+        </div>
+      </article>
 
-      <div class="projectflexbox">
-        <div class="projecticon">
-          <svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
-            <circle cx="32" cy="14" r="6" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:2"/>
-            <circle cx="14" cy="46" r="6" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:2"/>
-            <circle cx="50" cy="46" r="6" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:2"/>
-            <line x1="32" y1="20" x2="14" y2="40" style="stroke:var(--accent); stroke-width:2"/>
-            <line x1="32" y1="20" x2="50" y2="40" style="stroke:var(--accent); stroke-width:2"/>
-            <line x1="14" y1="46" x2="50" y2="46" style="stroke:var(--accent); stroke-width:2"/>
-          </svg>
-        </div>
-        <div class="projectsection">
-          <h2 class="projecttitle">Palette</h2>
-          <p class="underheader">
-            Designed and published Palette, a multi-agent Python framework that
-            streamlines LLM orchestration and model selection — built to make it
-            easier to route tasks to the right model inside a larger agent workflow.
-          </p>
-          <p class="project-tags">Python · Multi-agent systems · LLM orchestration</p>
-        </div>
-      </div>
+      <!-- Empty folder: delete once you add a real game -->
+      <article class="project-card project-card--empty" data-category="games">
+        <span class="project-card__tab">Games</span>
+        <h3>Nothing here yet</h3>
+        <p>My first Pygame game is in progress. Check back soon.</p>
+      </article>
 
     </div>
-  </div>
+  </main>
 
-  <!--FOOTER-->
-  <footer>
-    <div id="footer">
-      <p>Copyright &copy; 2026 Aditya Naidu</p>
-    </div>
+  <footer class="site-footer">
+    <p>Built by hand with HTML and CSS by Aditya, 2026</p>
   </footer>
-
-</div>
 </body>
 </html>

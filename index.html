@@ -2,156 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aditya Naidu — Data Scientist &amp; ML Engineer</title>
-  <meta name="description" content="Portfolio of Aditya Naidu, an aspiring data scientist and machine learning engineer.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aditya | Data science & ML student</title>
+  <meta name="description" content="Aditya, a data science and machine learning student in India.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-  <div id="container">
+  <!-- ===== NAV: same block on every page. Only aria-current changes. ===== -->
+  <header class="site-header">
+    <a class="site-logo" href="index.html">aditya</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a class="dymo" style="--tilt:-2deg" href="index.html" aria-current="page">home</a></li>
+        <li><a class="dymo" style="--tilt:1deg" href="about.html">about</a></li>
+        <li><a class="dymo" style="--tilt:-1deg" href="projects.html">projects</a></li>
+        <li><a class="dymo" style="--tilt:2deg" href="art.html">art</a></li>
+        <li><a class="dymo" style="--tilt:-1.5deg" href="links.html">links</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- ===================== HEADER ===================== -->
-    <header id="header">
-      <div class="header-inner">
-        <p class="brand"><a href="#top">Aditya Naidu</a></p>
-        <nav id="navbar" aria-label="Primary">
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Highlights</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+  <main>
+    <section class="locker" aria-label="Introduction">
 
-    <!-- ===================== BODY: SIDEBAR + MAIN ===================== -->
-    <div id="flex">
+      <!-- Inside of the locker -->
+      <div class="locker__body">
+        <div class="locker__inside">
+          <span class="locker__lamp" aria-hidden="true"></span>
 
-      <!-- SIDEBAR -->
-      <aside id="leftSidebar">
+          <div class="poster">
+            <!-- Swap in your own avatar: assets/avatar.png -->
+            <img class="poster__avatar" src="assets/avatar.svg" alt="Pixel art portrait of Aditya with glasses and a hoodie" width="176" height="198">
+            <div>
+              <p class="poster__hello">Hey, I'm</p>
+              <h1 class="poster__name">Aditya</h1>
+              <p class="poster__role">Data science &amp; ML student</p>
+              <p class="poster__note">I build things with Python, SQL and data, from autonomous vehicle systems to data science projects.</p>
+            </div>
+          </div>
 
-        <div class="box">
-          <h2>Currently</h2>
-          <ul class="plain-list">
-            <li>Exploring local LLM integrations, like LM Studio</li>
-            <li>Refining data extraction methods</li>
-            <li>Open to entry-level ML / data roles</li>
-          </ul>
+          <div class="locker__shelf">
+            <a class="dymo" style="--tilt:-1deg" href="projects.html">see my projects</a>
+            <a class="dymo" style="--tilt:1.5deg" href="about.html">read about me</a>
+          </div>
         </div>
+      </div>
 
-        <h3>Core skills</h3>
-        <ul class="tag-list">
-          <li>Python</li>
-          <li>PyTorch</li>
-          <li>FastAPI</li>
-          <li>OpenCV</li>
-          <li>ONNX Runtime</li>
-          <li>Computer vision</li>
-          <li>Data pipelines</li>
+      <!-- Door: tech stack stickers. Add one <li> per tool. -->
+      <div class="locker__door">
+        <h2 class="locker__door-title">Stuff I use</h2>
+        <ul class="sticker-list">
+          <li class="sticker" style="--bg:#3776ab; --tilt:-5deg">Python</li>
+          <li class="sticker" style="--bg:#00599c; --tilt:4deg; --r:50%">C++</li>
+          <li class="sticker" style="--bg:#f1e05a; --fg:#1e2427; --tilt:-2deg">SQL</li>
+          <li class="sticker" style="--bg:#4dabcf; --tilt:6deg">NumPy</li>
+          <li class="sticker" style="--bg:#150458; --tilt:-3deg">Pandas</li>
+          <li class="sticker" style="--bg:#ee4c2c; --tilt:3deg; --r:4px">PyTorch</li>
+          <li class="sticker" style="--bg:#5c3ee8; --tilt:-6deg">OpenCV</li>
+          <li class="sticker" style="--bg:#22314e; --tilt:2deg; --r:4px">ROS2</li>
+          <li class="sticker" style="--bg:#009688; --tilt:-1deg">FastAPI</li>
+          <li class="sticker" style="--bg:#2f3437; --tilt:5deg">Flask</li>
         </ul>
+        <div class="vents" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <span class="locker__handle" aria-hidden="true"></span>
+      </div>
 
-        <h3>Connect</h3>
-        <ul class="plain-list">
-          <li><a href="mailto:adityanaidu1014@gmail.com">Email</a></li>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
+    </section>
+  </main>
 
-      </aside>
-
-      <!-- MAIN CONTENT -->
-      <main id="top">
-
-        <section id="hero">
-          <p class="kicker">Aspiring data scientist &amp; machine learning engineer</p>
-          <h1>I turn messy data and models into things that actually run.</h1>
-          <p class="lede">
-            I'm an aspiring data scientist and machine learning engineer with entry-level
-            proficiency in applied machine learning and data systems. My goal is to help
-            innovative tech teams build scalable AI solutions and turn data into decisions,
-            using Python, PyTorch, and a data-driven approach to problem solving.
-          </p>
-        </section>
-
-        <section id="about" aria-labelledby="about-heading">
-          <h2 id="about-heading">About</h2>
-          <p>
-            I'm driven to apply what I've learned so far in my academic journey to
-            real problems — from training and optimizing models, to shipping the
-            pipelines that put them to use. I'm most interested in work that sits
-            between research and production: taking a model from a notebook to
-            something that runs reliably, in real time, in front of real users.
-          </p>
-          <p>
-            Outside of individual projects, I've led as a Team Captain, managing
-            complex software architectures and coordinating team workflows —
-            experience that shaped how I think about building things with other
-            people, not just on my own.
-          </p>
-        </section>
-
-        <section id="projects" aria-labelledby="projects-heading">
-          <h2 id="projects-heading">Highlights</h2>
-
-          <article class="project">
-            <h3>Real-time computer vision pipeline</h3>
-            <p>
-              Built and optimized a real-time computer vision pipeline using
-              TwinLiteNet, OpenCV, and ONNX Runtime GPU — focused on getting
-              a deep learning model running fast enough to be useful live,
-              not just accurate offline.
-            </p>
-            <p class="project-tags">TwinLiteNet · OpenCV · ONNX Runtime GPU</p>
-          </article>
-
-          <article class="project">
-            <h3>Palette</h3>
-            <p>
-              Designed and published Palette, a multi-agent Python framework
-              that streamlines LLM orchestration and model selection —
-              built to make it easier to route tasks to the right model
-              inside a larger agent workflow.
-            </p>
-            <p class="project-tags">Python · Multi-agent systems · LLM orchestration</p>
-          </article>
-        </section>
-
-        <section id="skills" aria-labelledby="skills-heading">
-          <h2 id="skills-heading">Skills &amp; strengths</h2>
-          <p>
-            Most comfortable working in Python, PyTorch, and FastAPI, applied to
-            machine learning, computer vision, and end-to-end data pipelines —
-            from raw data in, to a working model or service out.
-          </p>
-        </section>
-
-        <section id="contact" aria-labelledby="contact-heading">
-          <h2 id="contact-heading">Get in touch</h2>
-          <p>
-            If any of this sounds familiar, or you'd like to know more about my
-            background, I'd love to connect.
-          </p>
-          <p class="contact-links">
-            <a class="button" href="mailto:adityanaidu1014@gmail.com">Email me</a>
-            <a class="button button-outline" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-          </p>
-        </section>
-
-      </main>
-
-    </div>
-
-    <!-- ===================== FOOTER ===================== -->
-    <footer>
-      <p>&copy; 2026 Aditya Naidu. Built with plain HTML &amp; CSS.</p>
-    </footer>
-
-  </div>
-
+  <footer class="site-footer">
+    <p>Built by hand with HTML and CSS by Aditya, 2026</p>
+  </footer>
 </body>
 </html>

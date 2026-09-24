@@ -1,0 +1,96 @@
+/* ==========================================================
+   base.css: colours, fonts, spacing, resets.
+   Re-theme the whole site by editing the variables below.
+   ========================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;800&family=Kalam:wght@400;700&display=swap");
+
+:root {
+  /* Hallway */
+  --wall: #d3ddd2;
+  --wall-trim: #b4c3b3;
+  --floor: #7d837b;
+
+  /* Locker steel */
+  --steel: #7f8b93;
+  --steel-light: #a9b3b9;
+  --steel-dark: #56616a;
+  --inside: #30363c;
+
+  /* Ink and paper */
+  --ink: #1e2427;
+  --ink-soft: #4a5358;
+  --gold: #e0bb5f;
+  --paper: #fbfaf5;
+  --paper-line: #c9dbe6;
+  --manila: #e8cf96;
+  --tape: rgba(236, 226, 186, 0.85);
+  --dymo: #1b1d1f;
+  --dymo-active: #b3282d;
+  --focus: #1f6feb;
+
+  /* Type */
+  --font-body: "Chivo", "Segoe UI", system-ui, sans-serif;
+  --font-hand: "Kalam", "Segoe Print", "Comic Sans MS", cursive;
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: 2.2rem;
+  --step-4: clamp(2.6rem, 6vw, 4rem);
+
+  /* Space */
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --space-xl: 4rem;
+
+  --shadow-lift: 0 2px 0 rgba(0, 0, 0, 0.08), 0 8px 18px -8px rgba(30, 36, 39, 0.45);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  color: var(--ink);
+  /* wall, chair rail, floor */
+  background: linear-gradient(
+    to bottom,
+    var(--wall) 0,
+    var(--wall) calc(100% - 6rem),
+    var(--wall-trim) calc(100% - 6rem),
+    var(--wall-trim) calc(100% - 5.6rem),
+    var(--floor) calc(100% - 5.6rem)
+  );
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
