@@ -2,25 +2,18 @@
    TOKENS — edit these to change the whole site's look
    ===================================================== */
 :root {
-  --bg-page: #EEF3F1;       /* patterned backdrop behind the white card */
-  --dot-color: #D9E3DF;     /* the dot pattern color */
-  --canvas-bg: #FFFFFF;     /* the white site card */
+  --bg: #F5F6F8;          /* page background */
+  --panel: #EDEFF1;       /* sidebar / card background */
+  --ink: #1C1F23;         /* main text */
+  --muted: #5B6169;       /* secondary text */
+  --accent: #1F6F63;      /* links, buttons, highlights */
+  --accent-soft: #E3EEEC; /* tinted backgrounds for accent elements */
+  --line: #DADEE0;        /* hairline borders */
 
-  --nav-bg: #16211F;        /* dark nav / footer bar */
-  --nav-text: #FFFFFF;
+  --font-display: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
 
-  --ink: #202524;           /* body text */
-  --muted: #5B655F;         /* secondary text */
-  --line: #DDE3E0;          /* dashed dividers, borders */
-
-  --accent: #1F6F63;        /* links, tags, icons */
-  --accent-soft: #E3EEEC;   /* tinted backgrounds */
-  --accent-warm: #E2A33B;   /* big headers, like the reference's orange headers */
-
-  --font-display: 'Baloo 2', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-
-  --container-width: 1020px;
+  --container-width: 960px;
 }
 
 /* =====================================================
@@ -46,427 +39,287 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-body);
+  background: var(--bg);
   color: var(--ink);
-  background-color: var(--bg-page);
-  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 a {
   color: var(--accent);
 }
 
-a:hover {
-  color: var(--accent-warm);
-}
-
 a:focus-visible,
-label:focus-visible {
+button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-hr {
-  border: none;
-  border-top: 1px dashed var(--line);
-}
-
-#sitecanvas {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  background: var(--canvas-bg);
-  box-shadow: 0 3px 3px 0 rgba(22, 33, 31, 0.08), 0 3px 10px 0 rgba(22, 33, 31, 0.08);
-}
-
-/* =====================================================
-   NAV
-   ===================================================== */
-nav {
-  position: relative;
-  height: 70px;
-  padding: 10px 40px 10px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--nav-bg);
-}
-
-.menu-toggle-checkbox {
-  position: absolute;
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-
-.logo a {
-  color: var(--nav-text);
+h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.25rem;
-  text-decoration: none;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 0.6em;
 }
 
-#menulist {
-  display: flex;
-  gap: 36px;
-  align-items: center;
-  list-style: none;
+h2 {
+  font-size: 1.3rem;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--line);
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 1em;
+  max-width: 68ch;
+}
+
+ul {
   margin: 0;
   padding: 0;
 }
 
-#menulist li a {
-  color: var(--nav-text);
-  text-decoration: none;
+#container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+/* =====================================================
+   HEADER + NAV
+   ===================================================== */
+#header {
+  border-bottom: 1px solid var(--line);
+  padding: 20px 24px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.brand {
+  margin: 0;
+  font-family: var(--font-display);
   font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.brand a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+#navbar a {
+  color: var(--muted);
+  text-decoration: none;
   font-size: 0.95rem;
 }
 
-#menulist li a:hover {
-  color: var(--accent-warm);
-}
-
-#menulist li a[aria-current="page"] {
-  color: var(--accent-warm);
-}
-
-.menu-icon {
-  display: none;
-  color: var(--nav-text);
-  font-size: 1.6rem;
-  line-height: 1;
-  cursor: pointer;
-  user-select: none;
+#navbar a:hover {
+  color: var(--accent);
 }
 
 /* =====================================================
-   PAGE BASE
+   LAYOUT: SIDEBAR + MAIN
    ===================================================== */
-.pagecanvas {
-  width: 100%;
+#flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 40px 24px;
 }
 
-.pagecontent {
-  padding: 40px 50px 50px;
-  font-size: 17px;
-  line-height: 1.75;
+#leftSidebar {
+  width: 240px;
+  flex-shrink: 0;
+  order: 1;
+}
+
+main {
+  flex: 1;
+  order: 2;
+  min-width: 0;
 }
 
 /* =====================================================
-   HERO / WELCOME
+   SIDEBAR CONTENT
    ===================================================== */
-.welcomeflexbox {
-  display: flex;
-  align-items: center;
-  gap: 48px;
+.box {
+  background: var(--panel);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 28px;
 }
 
-.welcomesection {
-  width: 58%;
+#leftSidebar h2 {
+  font-size: 0.95rem;
+  border: none;
+  padding: 0;
+  margin-bottom: 0.6em;
 }
 
-.welcomeimg {
-  width: 42%;
-  display: flex;
-  justify-content: center;
+#leftSidebar h3 {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: none;
+  margin: 0 0 0.6em;
 }
 
-.bigheader {
-  font-family: var(--font-display);
-  font-size: 2.6rem;
-  color: var(--accent-warm);
-  margin: 0 0 0.3em;
+.plain-list {
+  list-style: none;
+  font-size: 0.92rem;
 }
 
-.underheader {
-  margin: 0 0 0.9em;
+.plain-list li {
+  margin-bottom: 0.5em;
+}
+
+.plain-list li::before {
+  content: "– ";
+  color: var(--muted);
 }
 
 .tag-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 1em 0;
-  padding: 0;
+  gap: 6px;
+  margin-bottom: 28px;
 }
 
 .tag-list li {
   background: var(--accent-soft);
   color: var(--accent);
   font-family: var(--font-display);
-  font-size: 0.8rem;
-  padding: 5px 10px;
-  border-radius: 4px;
+  font-size: 0.78rem;
+  padding: 4px 8px;
+  border-radius: 3px;
 }
 
-.socialmedialist {
-  display: flex;
-  gap: 16px;
-  padding-top: 8px;
+/* =====================================================
+   MAIN SECTIONS
+   ===================================================== */
+main section {
+  margin-bottom: 48px;
 }
 
-.socialmedialist a {
-  color: var(--ink);
-  display: inline-flex;
+#hero {
+  margin-bottom: 56px;
 }
 
-.socialmedialist a:hover {
+.kicker {
   color: var(--accent);
-}
-
-/* =====================================================
-   CURRENTLY / NEWS
-   ===================================================== */
-.newssection {
-  margin: 40px 0;
-}
-
-.newsheader {
-  text-align: center;
   font-family: var(--font-display);
-  color: var(--accent-warm);
-  font-size: 1.7rem;
-  margin: 18px 0 10px;
+  font-size: 0.9rem;
+  margin-bottom: 0.8em;
 }
 
-.newssection p {
-  text-align: center;
-  margin: 0 0 0.4em;
-}
-
-/* =====================================================
-   SECTION HEADERS (About / Projects / Links)
-   ===================================================== */
-.sectionheader {
-  font-family: var(--font-display);
-  color: var(--accent-warm);
+#hero h1 {
   font-size: 2rem;
-  margin: 0 0 24px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed var(--line);
+  max-width: 18ch;
+  margin-bottom: 0.5em;
 }
 
-section {
-  margin-bottom: 50px;
+.lede {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 60ch;
 }
 
-/* =====================================================
-   PROJECTS
-   ===================================================== */
-.projectitem {
-  margin-bottom: 6px;
+.project {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
 }
 
-.projecttitle {
-  font-family: var(--font-display);
-  color: var(--accent);
-  margin: 0 0 0.4em;
+.project:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.project h3 {
+  margin-bottom: 0.4em;
 }
 
 .project-tags {
-  font-size: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
   color: var(--muted);
   margin: 0;
 }
 
-.comicdivider {
-  margin: 26px 0;
-}
-
-/* =====================================================
-   LINKS
-   ===================================================== */
-.linkitem {
-  margin-bottom: 22px;
-}
-
-.linkheaders {
-  font-family: var(--font-display);
-  color: var(--accent);
-  margin: 0 0 4px;
-}
-
-.linkregulartext {
-  margin: 0;
-}
-
-.linkregulartext a {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.linkregulartext a:hover {
-  color: var(--accent);
-}
-
-/* =====================================================
-   ABOUT PAGE
-   ===================================================== */
-.aboutflexbox {
+.contact-links {
   display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  margin-bottom: 40px;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 1.2em;
 }
 
-.authorimage {
-  width: 38%;
-  display: flex;
-  justify-content: center;
-}
-
-.aboutsection {
-  width: 62%;
-}
-
-#faqheader {
-  font-family: var(--font-display);
-  color: var(--accent-warm);
-  font-size: 1.6rem;
-  margin: 20px 0 16px;
-}
-
-blockquote {
-  margin: 0 0 20px;
+.button {
+  display: inline-block;
   padding: 10px 18px;
-  border-left: 3px solid var(--accent-soft);
-  color: var(--muted);
+  border-radius: 4px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
 }
 
-/* =====================================================
-   PROJECTS PAGE
-   ===================================================== */
-.projectflexbox {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-bottom: 6px;
+.button:hover {
+  opacity: 0.9;
 }
 
-.projecticon {
-  flex: 0 0 auto;
-}
-
-.projecticon svg {
-  display: block;
-}
-
-.projectsection {
-  flex: 1;
-  min-width: 0;
-}
-
-/* =====================================================
-   LINKS PAGE
-   ===================================================== */
-.linklist {
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 0;
-}
-
-.linklist li {
-  margin-bottom: 14px;
-}
-
-.linklist li::before {
-  content: "✦ ";
-  color: var(--accent-warm);
-}
-
-.linklist li a {
-  font-weight: 600;
+.button-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
 }
 
 /* =====================================================
    FOOTER
    ===================================================== */
-#footer {
+footer {
+  border-top: 1px solid var(--line);
+  padding: 20px 24px;
   text-align: center;
-  color: var(--nav-text);
-  background-color: var(--nav-bg);
-  padding: 16px;
-  font-size: 0.95rem;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 /* =====================================================
    RESPONSIVE
    ===================================================== */
-@media (max-width: 880px) {
-  nav {
-    padding: 10px 20px;
-  }
-
-  .menu-icon {
-    display: block;
-  }
-
-  #menulist {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
+@media only screen and (max-width: 760px) {
+  #flex {
     flex-direction: column;
-    gap: 0;
-    text-align: center;
-    background: var(--nav-bg);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease;
+    padding: 28px 20px;
   }
 
-  #menulist li {
-    padding: 16px;
-  }
-
-  .menu-toggle-checkbox:checked ~ #menulist {
-    max-height: 300px;
-  }
-
-  .pagecontent {
-    padding: 30px 24px 40px;
-  }
-
-  .welcomeflexbox {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .welcomesection,
-  .welcomeimg {
+  #leftSidebar {
     width: 100%;
+    order: 2;
   }
 
-  .welcomeimg {
-    margin-top: 24px;
+  main {
+    order: 1;
   }
 
-  .socialmedialist {
-    justify-content: center;
-  }
-
-  .tag-list {
-    justify-content: center;
-  }
-
-  .bigheader {
-    font-size: 2rem;
-  }
-
-  .sectionheader {
-    font-size: 1.5rem;
-  }
-
-  .aboutflexbox,
-  .projectflexbox {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .authorimage,
-  .aboutsection {
-    width: 100%;
+  #hero h1 {
+    font-size: 1.6rem;
+    max-width: none;
   }
 }

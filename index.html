@@ -3,97 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Aditya Naidu — Data Scientist &amp; ML Engineer</title>
+  <meta name="description" content="Portfolio of Aditya Naidu, an aspiring data scientist and machine learning engineer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
-  <meta name="description" content="Hi, I'm Aditya! An aspiring data scientist and machine learning engineer. Here you'll find my projects, links, and a bit about me, all in one place.">
-  <title>Aditya Naidu – Data Scientist &amp; ML Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div id="sitecanvas">
+  <div id="container">
 
-  <!--NAV-->
-  <nav>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
-    <div class="logo"><a href="index.html">Aditya Naidu</a></div>
-    <ul id="menulist">
-      <li><a href="index.html" aria-current="page">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="links.html">Links</a></li>
-    </ul>
-    <label for="menu-toggle" class="menu-icon" aria-label="Toggle menu">☰</label>
-  </nav>
-
-  <!--CONTENT-->
-  <div class="pagecanvas">
-    <div class="pagecontent">
-
-      <!-- HERO / WELCOME -->
-      <div class="welcomeflexbox">
-        <div class="welcomesection">
-          <h1 class="bigheader">Hi, I'm Aditya!</h1>
-          <p class="underheader"><strong>Aspiring data scientist and machine learning engineer.</strong>
-            I want to help innovative tech teams build scalable AI solutions and turn data into decisions.</p>
-          <p>I work mainly in <strong>Python</strong>, <strong>PyTorch</strong>, and <strong>FastAPI</strong>,
-            focused on <strong>computer vision</strong> and <strong>end-to-end data pipelines</strong> —
-            you can see what I've built over in <a href="projects.html">projects</a>.</p>
-
-          <ul class="tag-list">
-            <li>Python</li>
-            <li>PyTorch</li>
-            <li>FastAPI</li>
-            <li>OpenCV</li>
-            <li>ONNX Runtime</li>
+    <!-- ===================== HEADER ===================== -->
+    <header id="header">
+      <div class="header-inner">
+        <p class="brand"><a href="#top">Aditya Naidu</a></p>
+        <nav id="navbar" aria-label="Primary">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Highlights</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
+        </nav>
+      </div>
+    </header>
 
-          <div class="socialmedialist">
-            <a href="mailto:adityanaidu1014@gmail.com" aria-label="Email">
-              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-                <path d="M2 5h20v14H2z" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
-                <text x="6.5" y="16.5" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="currentColor">in</text>
-              </svg>
-            </a>
-          </div>
+    <!-- ===================== BODY: SIDEBAR + MAIN ===================== -->
+    <div id="flex">
+
+      <!-- SIDEBAR -->
+      <aside id="leftSidebar">
+
+        <div class="box">
+          <h2>Currently</h2>
+          <ul class="plain-list">
+            <li>Exploring local LLM integrations, like LM Studio</li>
+            <li>Refining data extraction methods</li>
+            <li>Open to entry-level ML / data roles</li>
+          </ul>
         </div>
 
-        <div class="welcomeimg">
-          <!-- Swap this for <img src="assets/photo.jpg" alt="Aditya Naidu"> once you have one -->
-          <svg viewBox="0 0 200 200" width="220" height="220" role="img" aria-label="Monogram: AN">
-            <circle cx="100" cy="100" r="97" style="fill:var(--accent-soft); stroke:var(--accent); stroke-width:3"/>
-            <text x="50%" y="58%" text-anchor="middle" font-family="'Baloo 2', sans-serif" font-size="70" font-weight="700" style="fill:var(--accent)">AN</text>
-          </svg>
-        </div>
-      </div>
+        <h3>Core skills</h3>
+        <ul class="tag-list">
+          <li>Python</li>
+          <li>PyTorch</li>
+          <li>FastAPI</li>
+          <li>OpenCV</li>
+          <li>ONNX Runtime</li>
+          <li>Computer vision</li>
+          <li>Data pipelines</li>
+        </ul>
 
-      <!-- CURRENTLY / NEWS -->
-      <div class="newssection">
-        <hr>
-        <h2 class="newsheader">CURRENTLY</h2>
-        <p><strong>September 2026</strong></p>
-        <p>Exploring local LLM integrations like LM Studio and refining data extraction workflows,
-          while looking for entry-level ML / data roles.</p>
-      </div>
+        <h3>Connect</h3>
+        <ul class="plain-list">
+          <li><a href="mailto:adityanaidu1014@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main id="top">
+
+        <section id="hero">
+          <p class="kicker">Aspiring data scientist &amp; machine learning engineer</p>
+          <h1>I turn messy data and models into things that actually run.</h1>
+          <p class="lede">
+            I'm an aspiring data scientist and machine learning engineer with entry-level
+            proficiency in applied machine learning and data systems. My goal is to help
+            innovative tech teams build scalable AI solutions and turn data into decisions,
+            using Python, PyTorch, and a data-driven approach to problem solving.
+          </p>
+        </section>
+
+        <section id="about" aria-labelledby="about-heading">
+          <h2 id="about-heading">About</h2>
+          <p>
+            I'm driven to apply what I've learned so far in my academic journey to
+            real problems — from training and optimizing models, to shipping the
+            pipelines that put them to use. I'm most interested in work that sits
+            between research and production: taking a model from a notebook to
+            something that runs reliably, in real time, in front of real users.
+          </p>
+          <p>
+            Outside of individual projects, I've led as a Team Captain, managing
+            complex software architectures and coordinating team workflows —
+            experience that shaped how I think about building things with other
+            people, not just on my own.
+          </p>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-heading">
+          <h2 id="projects-heading">Highlights</h2>
+
+          <article class="project">
+            <h3>Real-time computer vision pipeline</h3>
+            <p>
+              Built and optimized a real-time computer vision pipeline using
+              TwinLiteNet, OpenCV, and ONNX Runtime GPU — focused on getting
+              a deep learning model running fast enough to be useful live,
+              not just accurate offline.
+            </p>
+            <p class="project-tags">TwinLiteNet · OpenCV · ONNX Runtime GPU</p>
+          </article>
+
+          <article class="project">
+            <h3>Palette</h3>
+            <p>
+              Designed and published Palette, a multi-agent Python framework
+              that streamlines LLM orchestration and model selection —
+              built to make it easier to route tasks to the right model
+              inside a larger agent workflow.
+            </p>
+            <p class="project-tags">Python · Multi-agent systems · LLM orchestration</p>
+          </article>
+        </section>
+
+        <section id="skills" aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills &amp; strengths</h2>
+          <p>
+            Most comfortable working in Python, PyTorch, and FastAPI, applied to
+            machine learning, computer vision, and end-to-end data pipelines —
+            from raw data in, to a working model or service out.
+          </p>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Get in touch</h2>
+          <p>
+            If any of this sounds familiar, or you'd like to know more about my
+            background, I'd love to connect.
+          </p>
+          <p class="contact-links">
+            <a class="button" href="mailto:adityanaidu1014@gmail.com">Email me</a>
+            <a class="button button-outline" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          </p>
+        </section>
+
+      </main>
 
     </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+      <p>&copy; 2026 Aditya Naidu. Built with plain HTML &amp; CSS.</p>
+    </footer>
+
   </div>
 
-  <!--FOOTER-->
-  <footer>
-    <div id="footer">
-      <p>Copyright &copy; 2026 Aditya Naidu</p>
-    </div>
-  </footer>
-
-</div>
 </body>
 </html>
